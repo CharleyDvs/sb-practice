@@ -1,4 +1,5 @@
 import React from 'react';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 
 function App(): JSX.Element {
     return (
@@ -10,6 +11,7 @@ function App(): JSX.Element {
                 <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
                     Learn React
                 </a>
+                <AddAPhotoIcon />
             </header>
         </div>
     );
