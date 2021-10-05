@@ -1,6 +1,6 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Button } from './Button';
+import { ComponentMeta, Story } from '@storybook/react';
+import { Button, ButtonProps } from './Button';
 
 export default {
     title: 'Components/Button',
@@ -11,16 +11,34 @@ const clickHandler = () => {
     alert('Hello World!!!');
 };
 
-export const LightButton: ComponentStory<typeof Button> = () => <Button text='Basic button' onClick={clickHandler} />;
-export const PrimaryButton: ComponentStory<typeof Button> = () => (
-    <Button text='Primary button' type='primary' onClick={clickHandler} />
-);
-export const SecondaryButton: ComponentStory<typeof Button> = () => (
-    <Button text='Secondary button' type='secondary' onClick={clickHandler} />
-);
-export const DarkButton: ComponentStory<typeof Button> = () => (
-    <Button text='Dark button' type='dark' onClick={clickHandler} />
-);
-export const DisabledButton: ComponentStory<typeof Button> = () => (
-    <Button text='Disabled button' type='disabled' onClick={clickHandler} />
-);
+const Template: Story<ButtonProps> = (args) => <Button {...args} onClick={clickHandler} />;
+
+export const Light = Template.bind({});
+Light.args = {
+    type: 'light',
+    text: 'Light button'
+};
+
+export const Primary = Template.bind({});
+Primary.args = {
+    type: 'primary',
+    text: 'Primary button'
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+    type: 'secondary',
+    text: 'Secondary button'
+};
+
+export const Dark = Template.bind({});
+Dark.args = {
+    type: 'dark',
+    text: 'Dark button'
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    type: 'disabled',
+    text: 'Disabled button'
+};
