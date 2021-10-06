@@ -2,16 +2,43 @@ import React from 'react';
 import { ComponentMeta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './IconButton';
 
-export default {
-    title: 'Components/IconButton',
-    component: Button
-} as ComponentMeta<typeof Button>;
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const voidClickHandler = () => {};
 
-const clickHandler = () => {
+const helloworldClickHandler = () => {
     alert('Hello World!!!');
 };
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} onClick={clickHandler} />;
+const goodbyeClickHandler = () => {
+    alert('Goodbye World!!!');
+};
+
+const customHandlers = { voidClickHandler, helloworldClickHandler, goodbyeClickHandler };
+
+export default {
+    title: 'Components/IconButton',
+    component: Button,
+    argTypes: {
+        className: {
+            table: { disable: true }
+        },
+        onClick: {
+            options: Object.keys(customHandlers),
+            defaultValue: Object.keys(customHandlers)[0],
+            mapping: customHandlers,
+            control: {
+                type: 'select',
+                labels: {
+                    voidClickHandler: 'No click handler',
+                    helloworldClickHandler: 'Hello World',
+                    goodbyeClickHandler: 'Goodbye World'
+                }
+            }
+        }
+    }
+} as ComponentMeta<typeof Button>;
+
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
