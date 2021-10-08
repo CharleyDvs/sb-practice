@@ -25,7 +25,7 @@ const defaultIconStyle = {
     height: 24
 };
 
-export function Button({
+export function IconButton({
     text = '',
     type = 'light',
     className,

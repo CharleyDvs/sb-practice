@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, Story } from '@storybook/react';
-import { Button, ButtonProps } from './IconButton';
+import { IconButton, ButtonProps } from './IconButton';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const voidClickHandler = () => {};
@@ -17,7 +17,7 @@ const customHandlers = { voidClickHandler, helloworldClickHandler, goodbyeClickH
 
 export default {
     title: 'Components/IconButton',
-    component: Button,
+    component: IconButton,
     argTypes: {
         className: {
             table: { disable: true }
@@ -36,9 +36,9 @@ export default {
             }
         }
     }
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof IconButton>;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args) => <IconButton {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
